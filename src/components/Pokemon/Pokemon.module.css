@@ -1,0 +1,13 @@
+.row {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.container {
+
+}
+
+.pokemon-card {
+    display: flex;
+    flex-direction: column;
+}
