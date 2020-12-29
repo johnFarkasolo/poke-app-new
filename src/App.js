@@ -34,9 +34,9 @@ const App = () => {
                 <Navbar active={menuActive} setActive={setMenuActive}/>
                 <PokedexMenu pokemons={pokemons} active={menuActive} setActive={setMenuActive}/>
                 <div className="app-content">
-                    {/*<Route exact path="/">*/}
-                    {/*    <PokedexContent pokemons={pokemons} />*/}
-                    {/*</Route>*/}
+                    <Route exact path="/">
+                        <PokedexContent pokemons={pokemons} />
+                    </Route>
                     <Route exact
                            path="/:pokemonId"
                            component={(props) => <Pokemon {...props}/>}

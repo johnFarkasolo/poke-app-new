@@ -4,7 +4,8 @@
 }
 
 .app-content {
-    display: grid;
-    width: 1200px;
-    margin: 0 auto;
+    /*display: grid;*/
+    /*width: 1200px;*/
+    /*margin: 0 auto;*/
+    padding-top: 80px;
 }

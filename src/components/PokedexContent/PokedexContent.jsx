@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import './PokedexContent.css'
+import {Link} from 'react-router-dom'
+import styles from './PokedexContent.module.css'
 import {toFirstCharacterUppercase} from "../../constants";
+import {Container, Row, Col} from 'react-grid-system'
 
 const PokedexContent = ({pokemons}) => {
 
@@ -9,44 +10,47 @@ const PokedexContent = ({pokemons}) => {
         const {id, name, sprite} = pokemons[pokemonId]
 
         return (
-            <div className="col s12 m6 l4" key={`${id}_${name}`}>
+            <Col xs={12} sm={6} md={4} lg={3} key={`${id}_${name}`}>
                 <Link to={`/${id}`}>
-                    <div className="card small">
-                        <div className="card-image">
-                            <img src={sprite} alt={name}/>
-                            <p className="pokemon-title">
-                                {`${id}. ${toFirstCharacterUppercase(name)}`}
-                            </p>
+                    <div className={styles.card}>
+                        <div className={styles.cardCover}>
+                            <div className={styles.cardContent}>
+                                <img src={sprite} alt={name}/>
+                                <p className={styles.pokemonTitle}>
+                                    {`${id}. ${toFirstCharacterUppercase(name)}`}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </Link>
-            </div>
-
+            </Col>
         )
     }
 
     return (
-        <div className="row container">
-            {pokemons ?
-                Object.keys(pokemons).map(pokemonId => (
-                    createPokemonBlock(pokemonId)
-                ))
-                :
-                <div className="preloader-wrapper big active">
-                    <div className="spinner-layer spinner-blue-only">
-                        <div className="circle-clipper left">
-                            <div className="circle"></div>
-                        </div>
-                        <div className="gap-patch">
-                            <div className="circle"></div>
-                        </div>
-                        <div className="circle-clipper right">
-                            <div className="circle"></div>
+        <Container>
+            <Row>
+                {pokemons ?
+                    Object.keys(pokemons).map(pokemonId => (
+                        createPokemonBlock(pokemonId)
+                    ))
+                    :
+                    <div className="preloader-wrapper big active">
+                        <div className="spinner-layer spinner-blue-only">
+                            <div className="circle-clipper left">
+                                <div className="circle"></div>
+                            </div>
+                            <div className="gap-patch">
+                                <div className="circle"></div>
+                            </div>
+                            <div className="circle-clipper right">
+                                <div className="circle"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
-        </div>
+                }
+            </Row>
+        </Container>
     );
 };
 
