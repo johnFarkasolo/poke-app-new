@@ -9,3 +9,10 @@
     /*margin: 0 auto;*/
     padding-top: 80px;
 }
+
+footer {
+    width: 100%;
+    background-color: black;
+    height: 50px;
+    color: white;
+}

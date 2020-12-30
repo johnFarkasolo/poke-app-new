@@ -39,10 +39,11 @@ const App = () => {
                     </Route>
                     <Route exact
                            path="/:pokemonId"
-                           component={(props) => <Pokemon {...props}/>}
+                           render={(props) => <Pokemon {...props}/>}
                     />
                 </div>
             </div>
+            <footer>@copy</footer>
         </BrowserRouter>
     );
 };
